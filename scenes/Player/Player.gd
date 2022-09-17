@@ -11,7 +11,7 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	#hide()
+	hide()
 	
 func start(pos):
 	position = pos
@@ -76,7 +76,7 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	#hide() # Player disappears after being hit.
+	hide() # Player disappears after being hit.
 	emit_signal("hit")
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
